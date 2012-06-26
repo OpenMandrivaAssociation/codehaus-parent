@@ -7,7 +7,7 @@ Group:          Development/Java
 License:        ASL 2.0
 URL:            http://codehaus.org/
 #Next version with license is at https://github.com/sonatype/codehaus-parent/blob/master/pom.xml
-Source0:        http://repo1.maven.org/maven2/org/codehaus/codehaus-parent/3/codehaus-parent-4.pom
+Source0:        http://repo1.maven.org/maven2/org/codehaus/codehaus-parent/3/codehaus-parent-3.pom
 #Patch0:         %{name}-enforcer.patch
 BuildArch:      noarch
 
