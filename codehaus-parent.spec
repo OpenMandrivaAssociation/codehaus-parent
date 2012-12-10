@@ -33,9 +33,8 @@ install -pm 644 codehaus-parent-3.pom \
         %{buildroot}%{_mavenpomdir}/JPP-%{name}.pom
 
 #%add_to_maven_depmap org.codehaus codehaus-parent %{version} JPP codehaus-parent
-%add_maven_depmap JPP-%{name}.pom 
+%add_to_maven_depmap JPP-%{name}.pom 
 
 %files
 %{_mavenpomdir}/*
 %{_mavendepmapfragdir}/*
-
