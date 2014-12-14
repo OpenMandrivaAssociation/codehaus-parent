@@ -1,49 +1,49 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           codehaus-parent
 Version:        4
-Release:        5.1%{?dist}
+Release:        8.1
 Summary:        Parent pom file for codehaus projects
-
-
+Group:		System/Libraries
 License:        ASL 2.0
 URL:            http://codehaus.org/
+BuildArch:      noarch
+
 #Next version with license is at https://github.com/sonatype/codehaus-parent/blob/master/pom.xml
 Source0:        http://repo1.maven.org/maven2/org/codehaus/codehaus-parent/%{version}/codehaus-parent-%{version}.pom
 Source1:        http://www.apache.org/licenses/LICENSE-2.0.txt
+
 Patch0:         %{name}-enforcer.patch
-BuildArch:      noarch
 
-BuildRequires:  jpackage-utils
-
-Requires:       jpackage-utils
+BuildRequires:  maven-local
 
 %description
 This package contains the parent pom file for codehaus projects.
 
-
 %prep
 %setup -q -c -T
-cp -p %{SOURCE0} .
+cp -p %{SOURCE0} pom.xml
 cp -p %{SOURCE1} LICENSE
 %patch0
 
 %build
-
+%mvn_build
 
 %install
-install -d -m 755 $RPM_BUILD_ROOT%{_mavenpomdir}
-install -pm 644 codehaus-parent-%{version}.pom \
-        $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
+%mvn_install
 
-%add_maven_depmap JPP-%{name}.pom 
-
-
-%files
+%files -f .mfiles
 %doc LICENSE
-%{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
 
 %changelog
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Wed May 28 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 4-7
+- Rebuild to regenerate Maven auto-requires
+
+* Wed May 21 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 4-6
+- Update to current packaging guidelines
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
@@ -75,3 +75,4 @@ install -pm 644 codehaus-parent-%{version}.pom \
 
 * Fri Apr 29 2011 Orion Poplawski <orion@cora.nwra.com> - 3-1
 - Initial package
+
