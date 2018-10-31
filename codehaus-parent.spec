@@ -1,7 +1,7 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           codehaus-parent
 Version:        4
-Release:        8.2
+Release:        8.3
 Summary:        Parent pom file for codehaus projects
 Group:		System/Libraries
 License:        ASL 2.0
