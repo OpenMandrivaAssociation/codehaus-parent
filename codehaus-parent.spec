@@ -5,7 +5,7 @@ Release:        8.4
 Summary:        Parent pom file for codehaus projects
 Group:		System/Libraries
 License:        ASL 2.0
-URL:            http://codehaus.org/
+URL:            https://codehaus.org/
 BuildArch:      noarch
 
 #Next version with license is at https://github.com/sonatype/codehaus-parent/blob/master/pom.xml
