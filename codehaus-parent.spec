@@ -6,6 +6,9 @@ Group:		System/Libraries
 License:        ASL 2.0
 URL:            https://codehaus.org/
 BuildArch:      noarch
+# Literal, so the first rpmbuild -bs records them before sysjar is installed.
+BuildRequires:	maven
+BuildRequires:	java-current-devel
 BuildSystem:	maven
 
 #Next version with license is at https://github.com/sonatype/codehaus-parent/blob/master/pom.xml
